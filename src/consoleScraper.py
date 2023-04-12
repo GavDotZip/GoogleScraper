@@ -22,7 +22,7 @@ def google(query):
         res = requests.get(url, headers=headers)
         soup = BeautifulSoup(res.text, 'html.parser')
     except:
-        print("Make sure you have a internet connection") # if no connection available, no results found
+        print("Ensure there is an internet connection") # if no connection available, no results found
     try:
         try:
             ans = soup.select('.RqBzHd')[0].getText().strip() # main classes in which Google results are stored
@@ -43,7 +43,7 @@ def google(query):
                     ans = soup.select('.kno-rdesc span')[0].getText().strip()
                     
     except: # if a result cannot be found, console will prompt user
-        ans = "can't find on google"
+        ans = "No result found. Refine search"
     return ans
 
 # print result from scraper
